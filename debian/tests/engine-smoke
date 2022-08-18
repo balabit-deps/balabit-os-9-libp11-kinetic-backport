@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# This runs a quick check to see if the openssl engine from libp11 is available
+# and can be loaded, and if its capabilities can be listed
+
+set -e
+
+ssl_cnf=$(mktemp)
+DEB_BUILD_MULTIARCH="$(dpkg-architecture -q DEB_BUILD_MULTIARCH)"
+
+cleanup() {
+    if [ -n "${ssl_cnf}" -a -f "${ssl_cnf}" ]; then
+        rm -f "${ssl_cnf}"
+    fi
+}
+
+trap cleanup EXIT
+
+cat > ${ssl_cnf} <<EOF
+HOME = .
+openssl_conf = openssl_init
+
+[openssl_init]
+engines = engine_section
+
+[engine_section]
+pkcs11 = pkcs11_section
+
+[pkcs11_section]
+engine_id = pkcs11
+dynamic_path = /usr/lib/${DEB_BUILD_MULTIARCH}/engines-3/pkcs11.so
+MODULE_PATH = opensc-pkcs11.so
+init = 0
+EOF
+
+OPENSSL_CONF="${ssl_cnf}" \
+    openssl engine -t -tt -c pkcs11

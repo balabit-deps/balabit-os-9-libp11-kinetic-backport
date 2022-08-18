@@ -1,0 +1,7 @@
+Tests: engine-smoke
+Depends: @, opensc-pkcs11, openssl
+Restrictions: superficial
+
+Tests: engine
+Depends: @, opensc-pkcs11, openssl, gnutls-bin, softhsm2
+Restrictions: needs-root, allow-stderr
