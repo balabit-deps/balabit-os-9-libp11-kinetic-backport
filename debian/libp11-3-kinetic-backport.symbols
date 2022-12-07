@@ -48,4 +48,5 @@ libp11.so.3 libp11-3 #MINVER#
  PKCS11_store_certificate@LIBP11_3 0.4.4
  PKCS11_store_private_key@LIBP11_3 0.4.4
  PKCS11_store_public_key@LIBP11_3 0.4.4
+ PKCS11_update_slots@LIBP11_3 0.4.12-0ubuntu1-bb1
  PKCS11_verify@LIBP11_3 0.4.4
