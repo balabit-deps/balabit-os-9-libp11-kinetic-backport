@@ -1,4 +1,4 @@
-Source: libp11
+Source: libp11-kinetic-backport
 Section: libdevel
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
@@ -15,9 +15,9 @@ Homepage: https://github.com/OpenSC/libp11
 Vcs-Git: https://salsa.debian.org/opensc-team/libp11.git
 Vcs-Browser: https://salsa.debian.org/opensc-team/libp11
 
-Package: libp11-dev
+Package: libp11-dev-kinetic-backport
 Architecture: any
-Depends: libp11-3 (= ${binary:Version}),
+Depends: libp11-3-kinetic-backport (= ${binary:Version}),
          libssl-dev,
          pkg-config,
          ${misc:Depends}
@@ -28,7 +28,7 @@ Description: pkcs#11 convenience library - development files
  .
  This package contains the header files and static libraries.
 
-Package: libp11-3
+Package: libp11-3-kinetic-backport
 Architecture: any
 Multi-Arch: same
 Section: libs
@@ -41,14 +41,14 @@ Description: pkcs#11 convenience library
  modules.  It was spun of the OpenSC project but can be used with any
  pkcs#11 module.
 
-Package: libengine-pkcs11-openssl
+Package: libengine-pkcs11-openssl-kinetic-backport
 Architecture: any
 Multi-Arch: same
 Depends: p11-kit, ${misc:Depends}, ${shlibs:Depends}
 Conflicts: libopensc-openssl
 Breaks: libengine-pkcs11-openssl1.1 (<< 0.4.9-2)
-Replaces: libopensc-openssl, libengine-pkcs11-openssl1.1 (<< 0.4.9-2)
-Provides: libopensc-openssl, libengine-pkcs11-openssl1.1
+Replaces: libopensc-openssl-kinetic-backport, libengine-pkcs11-openssl1.1-kinetic-backport (<< 0.4.9-2)
+Provides: libopensc-openssl-kinetic-backport, libengine-pkcs11-openssl1.1-kinetic-backport
 Description: OpenSSL engine for PKCS#11 modules
  With this engine for OpenSSL you can use OpenSSL library
  and command line tools with any PKCS#11 implementation as
@@ -61,10 +61,10 @@ Description: OpenSSL engine for PKCS#11 modules
  Engine_pkcs11 is a spin off from OpenSC and replaced
  libopensc-openssl.
 
-Package: libengine-pkcs11-openssl1.1
+Package: libengine-pkcs11-openssl1.1-kinetic-backport
 Section: oldlibs
 Architecture: any
 Multi-Arch: same
-Depends: libengine-pkcs11-openssl (= ${binary:Version}), ${misc:Depends}
+Depends: libengine-pkcs11-openssl-kinetic-backport (= ${binary:Version}), ${misc:Depends}
 Description: dummy package for upgrades from libengine-pkcs11-openssl1.1
  Can be safely removed.
