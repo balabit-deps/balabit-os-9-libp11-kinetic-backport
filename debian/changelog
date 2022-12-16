@@ -1,3 +1,9 @@
+libp11-kinetic-backport (0.4.12-0ubuntu1bb2) kinetic; urgency=medium
+
+  * Fixed debian/libp11-3-kinetic-backport.symbols file
+
+ -- Imre Steiner <imre.steiner@oneidentity.com>  Fri, 16 Dec 2022 10:11:56 +0100
+
 libp11-kinetic-backport (0.4.12-0ubuntu1bb1) kinetic; urgency=medium
 
   * Renamed package as per https://wiki.labs.quest.com/display/B/How+to+import+custom+Ubuntu+package
